@@ -16,8 +16,8 @@ spec:
         - name: installCRDs
           value: 'true'
   destination:
-    namespace: minikube
-    name: kind
+    namespace: cert-manager
+    name: minikube
   syncPolicy:
     automated: {}
     syncOptions:
