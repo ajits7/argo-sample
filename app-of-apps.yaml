@@ -4,7 +4,7 @@ metadata:
   name: app-of-apps
 spec:
   destination:
-    name: minikube
+    server: https://127.0.0.1:32789
     namespace: argocd
   source:
     path: apps
