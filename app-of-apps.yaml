@@ -14,7 +14,10 @@ spec:
   syncPolicy:
     syncOptions:
       - CreateNamespace=true
-  ignoreDifferences:
-  - name: my-cluster-role-binding
-    kind: ClusterRoleBinding
-    group: rbac.authorization.k8s.io
+  resourceExclusions: |
+    - apiGroups:
+      - rbac.authorization.k8s.io
+      kinds:
+      - ClusterRoleBinding
+      clusters:
+      - "*"
