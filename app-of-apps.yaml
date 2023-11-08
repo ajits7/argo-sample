@@ -11,7 +11,7 @@ spec:
     repoURL: 'https://github.com/ajits7/argo-cd-app-of-apps-demo.git'
     targetRevision: HEAD
   project: default
-  ignoreDifferences:
-  - name: my-cluster-role-binding
-    kind: ClusterRoleBinding
-    group: rbac.authorization.k8s.io
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
