@@ -16,7 +16,7 @@ spec:
       - CreateNamespace=true
   resourceExclusions: |
     - apiGroups:
-      - rbac.authorization.k8s.io
+      - "*"
       kinds:
       - ClusterRoleBinding
       clusters:
