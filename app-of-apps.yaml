@@ -12,7 +12,7 @@ spec:
     targetRevision: HEAD
   project: default
   ignoreDifferences:
-    - group: rbac.authorization.k8s.io
+    - group: "*"
       kind: ClusterRoleBinding
       jsonPointers:
       - /metadata/name
