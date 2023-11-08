@@ -15,4 +15,4 @@ spec:
   syncPolicy:
     syncOptions:
       - CreateNamespace=true
-      - RespectIgnoreDifferences=true
+      # - RespectIgnoreDifferences=true
