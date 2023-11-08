@@ -11,9 +11,6 @@ spec:
     repoURL: 'https://github.com/ajits7/argo-cd-app-of-apps-demo.git'
     targetRevision: HEAD
   project: default
-  # syncPolicy:
-  #   syncOptions:
-  #   - RespectIgnoreDifferences=true
-  # ignoreDifferences:
-  # - group: "*"
-  #   kind: "Application"
+  ignoreDifferences:
+    - group: rbac.authorization.k8s.io
+      kind: ClusterRoleBinding
