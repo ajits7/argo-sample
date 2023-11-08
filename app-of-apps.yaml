@@ -12,10 +12,8 @@ spec:
     targetRevision: HEAD
   project: default
   ignoreDifferences:
-    - group: "*"
-      kind: ClusterRoleBinding
-      jsonPointers:
-      - /metadata/name
-  syncPolicy:
-    syncOptions:
-    - RespectIgnoreDifferences=true
+  - group: "*"
+    kind: "*"
+    managedFieldsManagers:
+    - argocd-controller
+    - argocd-application-controller
