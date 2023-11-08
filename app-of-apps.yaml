@@ -4,7 +4,6 @@ metadata:
   name: app-of-apps
 spec:
   destination:
-    name:  in-cluster
     server: "https://kubernetes.default.svc"
     namespace: argocd
   source:
