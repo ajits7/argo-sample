@@ -19,10 +19,6 @@ spec:
     syncOptions:
       - CreateNamespace=true
       - RespectIgnoreDifferences=true
-  resourceExclusions: |
-    - apiGroups:
-      - *
-      kinds:
-      - ClusterRoleBinding
-      clusters:
-      - "*"
+  ignoreDifferences:
+  - group: rbac.authorization.k8s.io
+    kind: ClusterRoleBinding
