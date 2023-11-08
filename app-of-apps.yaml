@@ -4,7 +4,7 @@ metadata:
   name: app-of-apps
 spec:
   destination:
-    name: in-cluster
+    name: minikube
     namespace: argocd
   source:
     path: apps
