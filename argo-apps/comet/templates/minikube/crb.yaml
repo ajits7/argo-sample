@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: varnish-operator
+  name: crb
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
@@ -10,14 +10,14 @@ spec:
   source:
     repoURL: https://github.com/ajits7/argo-cd-app-of-apps-demo.git
     targetRevision: HEAD
-    path: charts/varnish-operator
+    path: charts/cr
     helm:
-      releaseName: varnish-operator
+      releaseName: crb
       valueFiles:
-        - /charts/varnish-operator/values.yaml
+        - /charts/crb/values.yaml
   destination:
     name: in-cluster
-    namespace: varnish-operator
+    namespace: test
   syncPolicy:
     automated:
       prune: true

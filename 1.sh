@@ -11,7 +11,6 @@ read -p "Enter the profile name: " profile
 # profile=$1
 
 # Read the values from the credentials file
-# Read the values from the credentials file
 region=$(awk -v profile="$profile" '/^\['"$profile"'\]$/{p=1} p&&/region/{print $3; exit}' ${credentials_file})
 aws_access_key_id=$(awk -v profile="$profile" '/^\['"$profile"'\]$/{p=1} p&&/aws_access_key_id/{print $3; exit}' ${credentials_file})
 aws_secret_access_key=$(awk -v profile="$profile" '/^\['"$profile"'\]$/{p=1} p&&/aws_secret_access_key/{print $3; exit}' ${credentials_file})
