@@ -1,0 +1,16 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: jetstream
+  namespace: argocd
+spec:
+  description: "Jetstream Project"
+  clusterResourceWhitelist:
+  - group: '*'
+    kind: '*'
+  destinations:
+  - name: '*'
+    namespace: '*'
+    server: '*'
+  sourceRepos:
+  - '*'
