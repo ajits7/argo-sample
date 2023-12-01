@@ -1,0 +1,9 @@
+apiVersion: v2
+name: varnish-operator
+
+version: 1.0.0
+
+dependencies:
+  - name: varnish-operator
+    version: 0.35.0
+    repository: https://raw.githubusercontent.com/IBM/varnish-operator/main/helm-releases
