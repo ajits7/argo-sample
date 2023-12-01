@@ -10,7 +10,7 @@ spec:
   source:
     repoURL: https://github.com/ajits7/argo-cd-app-of-apps-demo.git
     targetRevision: HEAD
-    path: charts/cr
+    path: charts/crb
     helm:
       releaseName: crb
       valueFiles:
