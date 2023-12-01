@@ -1,0 +1,27 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: varnish-operator
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: comet
+  source:
+    repoURL: https://github.com/ajits7/argo-cd-app-of-apps-demo.git
+    targetRevision: HEAD
+    path: charts/varnish-operator
+    helm:
+      releaseName: varnish-operator
+      valueFiles:
+        - /charts/varnish-operator/values.yaml
+  destination:
+    name: in-cluster
+    namespace: varnish-operator
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - Validate=false
+      - CreateNamespace=true

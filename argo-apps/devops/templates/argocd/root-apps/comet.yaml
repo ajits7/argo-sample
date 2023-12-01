@@ -1,19 +1,21 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: root-jetstream
+  name: root-comet
   namespace: argocd
   finalizers:
-  - resources-finalizer.argocd.argoproj.io
+    - resources-finalizer.argocd.argoproj.io
 spec:
+  project: comet
+  source:
+    repoURL: https://github.com/ajits7/argo-cd-app-of-apps-demo.git
+    targetRevision: HEAD
+    path: argo-apps/comet
+    directory:
+      recurse: true
   destination:
     name: in-cluster
     namespace: argocd
-  project: jetstream
-  source:
-    path: argo-apps/jetstream
-    repoURL: https://github.com/ajits7/argo-cd-app-of-apps-demo.git
-    targetRevision: HEAD
   syncPolicy:
     automated:
       prune: true
