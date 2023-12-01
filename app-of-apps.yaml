@@ -11,13 +11,3 @@ spec:
     repoURL: 'https://github.com/ajits7/argo-cd-app-of-apps-demo.git'
     targetRevision: HEAD
   project: default
-  syncPolicy:
-    syncOptions:
-      - CreateNamespace=true
-  resourceExclusions: |
-    - apiGroups:
-      - "*"
-      kinds:
-      - ClusterRoleBinding
-      clusters:
-      - "*"
