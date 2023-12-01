@@ -1,71 +1,12 @@
 argo-cd:
-  ## Globally shared configuration
-  # global:
-  #   nodeSelector:
-  #     nodegroup: argocd
 
-  #   tolerations:
-  #   - key: "dedicated"
-  #     operator: "Equal"
-  #     value: "argocd"
-  #     effect: "NoSchedule"
-  #   - key: "dedicated"
-  #     operator: "Equal"
-  #     value: "argocd"
-  #     effect: "NoExecute"
-
-  ## Argo Configs
-  # configs:
-  #   cm:
-  #     url: "https://argocd.pe.sun.weather.com"
-  #     admin.enabled: false
-
-  #     application.instanceLabelKey: "argocd.argoproj.io/instance"
-
-  #     # Dex configuration
-  #     dex.config: |
-  #       connectors:
-  #         - type: github
-  #           id: github
-  #           name: GitHub
-  #           config:
-  #             clientID: $argocd-sso-secret:dex.github.clientID
-  #             clientSecret: $argocd-sso-secret:dex.github.clientSecret
-  #             orgs:
-  #             - name: TheWeatherCompany
-
-  #   # Argo CD RBAC policy configuration
-  #   rbac:
-  #     policy.default: 'role:readonly'
-  #     policy.csv: |
-  #       p, role:jetstream-sync, applications, sync, jetstream/*, allow
-  #       p, role:triangulum-sync, applications, sync, triangulum/*, allow
-  #       g, TheWeatherCompany:sun-b2c-argocd-admins, role:admin
-  #       g, TheWeatherCompany:sun-b2c-argocd-jetstream, role:jetstream-sync
-  #       g, TheWeatherCompany:sun-b2c-argocd-triangulum, role:triangulum-sync
 
   ## Application controller
   controller:
     replicas: 1
 
-  # This key configures Redis-HA subchart and when enabled (redis-ha.enabled=true)
-  # the custom redis deployment is omitted
-  # Check the redis-ha chart for more properties
   redis-ha:
     enabled: false
-
-    # nodeSelector:
-    #   nodegroup: argocd
-
-    # tolerations:
-    # - key: "dedicated"
-    #   operator: "Equal"
-    #   value: "argocd"
-    #   effect: "NoSchedule"
-    # - key: "dedicated"
-    #   operator: "Equal"
-    #   value: "argocd"
-    #   effect: "NoExecute"
 
   ## Server
   server:
@@ -76,43 +17,6 @@ argo-cd:
     service:
       type: NodePort
 
-    # ingress:
-    #   enabled: true
-    #   annotations:
-    #     alb.ingress.kubernetes.io/backend-protocol: HTTPS
-    #     alb.ingress.kubernetes.io/listen-ports: '[{"HTTP":80},{"HTTPS":443}]'
-    #     alb.ingress.kubernetes.io/scheme: internet-facing
-    #     alb.ingress.kubernetes.io/ssl-redirect: "443"
-    #     alb.ingress.kubernetes.io/target-type: ip
-    #     alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:us-east-1:738806440043:certificate/f07adb3a-00ce-4491-beb8-7ca48c997a52
-    #     alb.ingress.kubernetes.io/inbound-cidrs: 96.8.89.36/32,96.8.90.36/32 
-    #     external-dns.alpha.kubernetes.io/hostname: argocd.pe.sun.weather.com
-
-    #   ingressClassName: "alb"
-
-    #   hosts:
-    #     - argocd.pe.sun.weather.com
-
-    #   tls:
-    #     - hosts:
-    #       - argocd.pe.sun.weather.com
-
-    #   https: true
-
-    # ingressGrpc:
-      # enabled: true
-      # isAWSALB: true
-      # awsALB:
-      #   serviceType: ClusterIP
-
-      # hosts:
-      #   - argocd.pe.sun.weather.com
-
-      # tls:
-      #   - hosts:
-      #     - argocd.pe.sun.weather.com
-
-      # https: true
 
   ## Repo Server
   repoServer:
