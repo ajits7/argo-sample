@@ -17,7 +17,7 @@ spec:
         - /automation/helm-releases/argo-cd/values.yaml
   destination:
     name: in-cluster
-    namespace: test
+    namespace: argocd
   syncPolicy:
     automated:
       prune: true
