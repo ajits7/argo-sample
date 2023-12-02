@@ -1,0 +1,29 @@
+argo-cd:
+
+
+  ## Application controller
+  controller:
+    replicas: 1
+
+  redis-ha:
+    enabled: false
+
+  ## Server
+  server:
+    autoscaling:
+      enabled: true
+      minReplicas: 1
+
+    service:
+      type: NodePort
+
+
+  ## Repo Server
+  repoServer:
+    autoscaling:
+      enabled: true
+      minReplicas: 1
+
+  ## ApplicationSet controller
+  applicationSet:
+    replicas: 1
