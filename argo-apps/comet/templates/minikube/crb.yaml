@@ -8,7 +8,7 @@ metadata:
 spec:
   project: comet
   source:
-    repoURL: https://github.com/ajits7/argo-cd-app-of-apps-demo.git
+    repoURL: https://github.com/ajits7/argo-sample.git
     targetRevision: HEAD
     path: charts/crb
     helm:

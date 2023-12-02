@@ -10,5 +10,5 @@ spec:
   project: devops
   source:
     path: automation/helm-releases/argo-cd
-    repoURL: https://github.com/ajits7/argo-cd-app-of-apps-demo.git
+    repoURL: https://github.com/ajits7/argo-sample.git
     targetRevision: HEAD

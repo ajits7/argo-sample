@@ -12,7 +12,7 @@ spec:
   project: devops
   source:
     path: argocd-apps/argo
-    repoURL: https://github.com/ajits7/argo-cd-app-of-apps-demo.git
+    repoURL: https://github.com/ajits7/argo-sample.git
     targetRevision: HEAD
   syncPolicy:
     automated:
