@@ -25,3 +25,8 @@ spec:
     syncOptions:
       - Validate=false
       - CreateNamespace=true
+  
+  spec:
+  ignoreDifferences:
+  - group: rbac.authorization.k8s.io
+    kind: ClusterRole
