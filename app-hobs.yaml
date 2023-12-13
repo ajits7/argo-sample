@@ -1,0 +1,21 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: b2c-micro-qa-eks-use1-01-sun-ms-hobs
+  namespace: argocd
+  annotations:
+    argocd.argoproj.io/compare-options: IgnoreExtraneous
+    argocd.argoproj.io/sync-options: Prune=false
+spec:
+  destination:
+    name: b2c-micro-qa-eks-use1-01
+    namespace: sun-ms-hobs
+  project: jetstream
+  source:
+    repoURL: git@github.com:TheWeatherCompany/sun-micro-cluster-automation.git
+    path: charts/sun-ms-hobs/sun-ms-hobs
+    targetRevision: main
+    helm:
+      releaseName: sun-ms-hobs
+      valueFiles:
+      - /environments/b2c-micro-qa-eks-use1-01/sun-ms-hobs/sun-ms-hobs.yaml
