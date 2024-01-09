@@ -2,7 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   annotations:
-    notifications.argoproj.io/subscribe.on-sync-succeeded.slack: stage-alerts
+    notifications.argoproj.io/subscribe.on-sync-succeeded.slack: general
   name: cr
   namespace: argocd
   finalizers:
