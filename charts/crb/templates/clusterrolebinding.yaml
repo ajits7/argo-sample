@@ -2,6 +2,8 @@ apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
   name: my-cluster-role-binding
+  annotations:
+   notifications.argoproj.io/subscribe.on-deployed.slack: stage-alert  #Slack Channel name
 subjects:
   - kind: User
     name: my-user
