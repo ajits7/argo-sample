@@ -4,7 +4,7 @@ metadata:
   name: crb
   namespace: argocd
   annotations:
-    notifications.argoproj.io/subscribe.on-sync-succeeded.slack: stage-alerts
+    notifications.argoproj.io/subscribe.on-sync-succeeded.slack: general
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
