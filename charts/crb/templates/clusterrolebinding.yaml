@@ -6,7 +6,7 @@ metadata:
    notifications.argoproj.io/subscribe.on-deployed.slack: stage-alert  #Slack Channel name
 subjects:
   - kind: User
-    name: my-user
+    name: my-users
     apiGroup: rbac.authorization.k8s.io
 roleRef:
   kind: ClusterRole
