@@ -1,34 +1,29 @@
-# Description: Prometheus application for ArgoCD############################################
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: prometheus
+  name: Prometheus
   namespace: argocd
+  annotations:
+    notifications.argoproj.io/subscribe.on-sync-succeeded.slack: general
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
-  destination:
-    namespace: monitoring
-    server: https://kubernetes.default.svc
   project: comet
-  sources:
-    - repoURL: https://github.com/ajits7/argo-sample.git
-      targetRevision: HEAD
-      ref: <customizable reference>
-    - repoURL: https://prometheus-community.github.io/helm-charts/
-      chart: prometheus
-      targetRevision: 19.7.2
-      helm:
-        values: |
-            server:
-              service:
-                type: LoadBalancer
+  source:
+    repoURL: https://github.com/ajits7/argo-sample.git
+    targetRevision: HEAD
+    path: charts/Prometheus
+    helm:
+      releaseName: Prometheus
+      valueFiles:
+        - /charts/Prometheus/values.yaml
+  destination:
+    name: in-cluster
+    namespace: monitoring
   syncPolicy:
     automated:
       prune: true
       selfHeal: true
     syncOptions:
+      - Validate=true
       - CreateNamespace=true
-  
-  
-# ############################## END OF prometheus.yaml ####################################

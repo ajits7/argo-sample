@@ -1,0 +1,5 @@
+argocd-notifications:
+  argocdUrl: httpd://argocd
+  secret:
+  # -- Whether helm chart creates controller secret
+    create: false
