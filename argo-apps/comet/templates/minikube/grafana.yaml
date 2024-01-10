@@ -11,7 +11,7 @@ spec:
     server: https://kubernetes.default.svc
   project: comet
   sources:
-  - repoURL:  https://github.com/<git-username>/<git-repo>.git
+  - repoURL:  https://github.com/ajits7/argo-sample.git
     targetRevision: HEAD
     ref: <customizable reference>
   - repoURL: https://grafana.github.io/helm-charts
