@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: prometheus
+  name: pro
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
@@ -10,11 +10,11 @@ spec:
   source:
     repoURL: https://github.com/ajits7/argo-sample.git
     targetRevision: HEAD
-    path: charts/prometheus
+    path: charts/pro
     helm:
-      releaseName: prometheus
+      releaseName: pro
       valueFiles:
-        - /charts/prometheus/values.yaml
+        - /charts/pro/values.yaml
   destination:
     name: in-cluster
     namespace: monitoring
