@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: Prometheus
+  name: prometheus
   namespace: argocd
   annotations:
     notifications.argoproj.io/subscribe.on-sync-succeeded.slack: general
@@ -12,11 +12,11 @@ spec:
   source:
     repoURL: https://github.com/ajits7/argo-sample.git
     targetRevision: HEAD
-    path: charts/Prometheus
+    path: charts/prometheus
     helm:
-      releaseName: Prometheus
+      releaseName: prometheus
       valueFiles:
-        - /charts/Prometheus/values.yaml
+        - /charts/prometheus/values.yaml
   destination:
     name: in-cluster
     namespace: monitoring
