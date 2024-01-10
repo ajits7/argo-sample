@@ -1,3 +1,4 @@
-argocd-notifications: 
+argocd-notifications:
+  secret:
   # -- Whether helm chart creates controller secret
-  create: false
+    create: true
