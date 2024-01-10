@@ -1,0 +1,30 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  annotations:
+    notifications.argoproj.io/subscribe.on-sync-succeeded.slack: general
+  name: argocd-notifications
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: comet
+  source:
+    repoURL: https://github.com/ajits7/argo-sample.git
+    targetRevision: HEAD
+    path: charts/argocd-notifications
+    helm:
+      releaseName: argocd-notifications
+      valueFiles:
+        - /charts/argocd-notifications/values.yaml
+  destination:
+    name: in-cluster
+    namespace: argocd
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - Validate=false
+      - CreateNamespace=true
+      
